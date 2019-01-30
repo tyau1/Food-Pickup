@@ -43,6 +43,14 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
+app.get("/menu", (req, res) => {
+  res.render("menu");
+});
+
+app.get("/confirmation", (req, res) => {
+  res.render("confirmation");
+});
+
 app.listen(PORT, () => {
   console.log("Example app listening on port " + PORT);
 });

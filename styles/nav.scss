@@ -1,4 +1,6 @@
 #nav-bar{
+  display: flex;
+  flex-direction: row;
   background-color: #07A7C4;
   top: 0;
   height: 80px;
@@ -9,7 +11,7 @@
 }
 
 #nav-bar .header{
-  float: left;
+  display: inline-flex;
   font-size: 200%;
   margin-top: 20px;
 }

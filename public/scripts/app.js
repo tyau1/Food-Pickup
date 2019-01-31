@@ -4,8 +4,11 @@ $(() => {
     url: "/api/foods"
   }).done((foods) => {
     for(food of foods) {
-      $("<tr>").text(food.name).appendTo($("table"));
-      $("<tr>").text(food.price.toString()).appendTo($("table"));
+      $("<tr>").html(
+        `
+        <td class="food">${food.name}</td><td class="price">$${food.price.toString()}</td>
+        `)
+        .appendTo($("table"));
     }
-  });;
+  });
 });

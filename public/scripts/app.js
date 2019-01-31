@@ -4,8 +4,8 @@ $(() => {
     url: "/api/foods"
   }).done((foods) => {
     for(food of foods) {
-      $("<th>").text(food.name).appendTo($("tr"));
-      $("<th>").text(food.price).appendTo($("tr"));
+      $("<tr>").text(food.name).appendTo($("table"));
+      $("<tr>").text(food.price.toString()).appendTo($("table"));
     }
   });;
 });

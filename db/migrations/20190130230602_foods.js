@@ -3,7 +3,7 @@ exports.up = function(knex, Promise) {
     knex.schema.createTable('foods', function (table) {
       table.increments();
       table.string('name');
-      table.string('price');
+      table.integer('price');
       table.integer('restaurant_id').references('restaurants.id');
     })
   ])

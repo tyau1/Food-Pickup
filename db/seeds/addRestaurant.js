@@ -15,15 +15,75 @@ exports.seed = function(knex, Promise) {
                 knex('foods')
                 .insert([
                   {
-                    name:'mage bowl',
-                    price: 13,
+                    name:'SRIRACHA CHICKEN',
+                    price: 9.25,
                     restaurant_id: knex.select('id').from('restaurants')
                   },
                   {
-                    name:'test1',
-                    price: 12,
+                    name:'EBITEN BOWL',
+                    price: 9.75,
                     restaurant_id: knex.select('id').from('restaurants')
-                  }
+                  },
+                  {
+                    name:'MEGA BOWL',
+                    price: 10.75,
+                    restaurant_id: knex.select('id').from('restaurants')
+                  },
+                  {
+                    name:'TERIYAKI CHICKEN',
+                    price: 8.95,
+                    restaurant_id: knex.select('id').from('restaurants')
+                  },
+                  {
+                    name:'TEMPURA BOWL',
+                    price: 8.95,
+                    restaurant_id: knex.select('id').from('restaurants')
+                  },
+                  {
+                    name:'YAKINIKU BEEF',
+                    price: 8.95,
+                    restaurant_id: knex.select('id').from('restaurants')
+                  },
+                  {
+                    name:'BUTA-MAYO',
+                    price: 8.95,
+                    restaurant_id: knex.select('id').from('restaurants')
+                  },
+                  {
+                    name:'KATSU CURRY',
+                    price: 8.95,
+                    restaurant_id: knex.select('id').from('restaurants')
+                  },
+                  {
+                    name:'PRAWN CURRY',
+                    price: 8.95,
+                    restaurant_id: knex.select('id').from('restaurants')
+                  },
+                  {
+                    name:'TEMPURA UDON',
+                    price: 8.95,
+                    restaurant_id: knex.select('id').from('restaurants')
+                  },
+                  {
+                    name:'BEEF UDON',
+                    price: 8.95,
+                    restaurant_id: knex.select('id').from('restaurants')
+                  },
+                  {
+                    name:'BEEF UDON',
+                    price: 8.95,
+                    restaurant_id: knex.select('id').from('restaurants')
+                  },
+                  {
+                    name:'SPICY PORK UDON',
+                    price: 8.95,
+                    restaurant_id: knex.select('id').from('restaurants')
+                  },
+                  {
+                    name:'BEEF YAKI UDON',
+                    price: 8.95,
+                    restaurant_id: knex.select('id').from('restaurants')
+                  },
                 ])
               ]);
             });

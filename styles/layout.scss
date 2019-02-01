@@ -61,7 +61,13 @@ body {
         }
       }
     }
-
+    .thankyou{
+      flex-direction: column;
+      justify-content:flex-end;
+      background-color: black;
+      width: 900px;
+      color: white;
+    }
   }
 }
   h1 {

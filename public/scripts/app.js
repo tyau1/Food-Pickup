@@ -20,26 +20,22 @@ $(() => {
         .appendTo($("table"));
       num.push(0);
     })
-<<<<<<< HEAD
-
-=======
     $("<div>").html(
       `
         <h3>Total price:$
           <a>0</a>
           <button class="clear_all">clear all</button>
-          
+
         </h3>
 
       `)
       .appendTo($("section"));
-    
->>>>>>> 2dd2ed3a04b1a1955da4106b838ff1c0eb82c52e
+
     $(".add_button").click(function(e){
       const i = Number($(e.target).parent().parent().find('.index').text())-1;
       num[i] = num[i] + 1;
       total = Math.round((total + Number($(e.target).parent().parent().find('a').text()))*100)/100
-      
+
       $('div').find('a').text(total.toString());
       $(e.target).parent().parent().find('.counter').text(num[i]);
     });
@@ -48,7 +44,7 @@ $(() => {
       if (num[j]>0){
         num[j] = num[j] - 1;
         total = Math.round((total - Number($(e.target).parent().parent().find('a').text()))*100)/100;
-        
+
       }else{
         num[j]=0;
       }
@@ -64,10 +60,6 @@ $(() => {
       $('div').find('a').text(0);
     });
 
-<<<<<<< HEAD
-=======
-    
->>>>>>> 2dd2ed3a04b1a1955da4106b838ff1c0eb82c52e
   });
 });
 

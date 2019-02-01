@@ -1,8 +1,5 @@
 
 
-
-
-
 $(() => {
   $.ajax({
     method: "GET",
@@ -32,7 +29,7 @@ $(() => {
         </h3>
 
       `)
-      .appendTo($("#total_price"));
+      .appendTo($(".total_price"));
 
     $(".add_button").click(function(e){
       const i = Number($(e.target).parent().parent().find('.index').text())-1;
@@ -63,7 +60,15 @@ $(() => {
       $('div').find('a').text(0);
     });
 
-
   });
 });
+
+$(".open").on("click", function () {
+$(".popup-content").addClass("active");
+});
+
+$(".close, .popup").on("click", function () {
+  $(".popup, .popup-content").removeClass("active");
+});
+
 

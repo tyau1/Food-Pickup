@@ -12,12 +12,12 @@ $(() => {
         `
         <td class="index">${index+1}</td>
         <td class="food">${food.name}</td>
-        <td class="price">$<a type="number">${food.price}</a></td>
         <td class="minus_button"><button >-</button><td>
         <td class="counter">0</td>
         <td class="add_button"><button>+</button><td>
+        <td class="price">$<a type="number">${food.price}</a></td>
         `)
-        .appendTo($("table"));
+        .appendTo($("#menu_table"));
       num.push(0);
     })
     $("<div>").html(
@@ -30,6 +30,7 @@ $(() => {
 
       `)
       .appendTo($("#total_price"));
+    
 
     $(".add_button").click(function(e){
       const i = Number($(e.target).parent().parent().find('.index').text())-1;
@@ -50,6 +51,7 @@ $(() => {
       }
       $(e.target).parent().parent().find('.counter').text(num[j]);
       $('div').find('a').text(total.toString());
+
     });
     $(".clear_all").click(function(e){
       for (let k = 0; k < num.length; k++){
@@ -59,17 +61,19 @@ $(() => {
       total = 0;
       $('div').find('a').text(0);
     });
+    $(".open").on("click", function () {
+      $(".popup-content").addClass("active");
+      });
+      $(".close, .popup").on("click", function () {
+        $(".popup, .popup-content").removeClass("active");
+      });
     
 
   });
 });
-$(".open").on("click", function () {
-  $(".popup-content").addClass("active");
-  });
+
   
-  $(".close, .popup").on("click", function () {
-    $(".popup, .popup-content").removeClass("active");
-  });
+  
 
 
 

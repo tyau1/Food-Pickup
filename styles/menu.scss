@@ -1,0 +1,41 @@
+
+body {
+  background-color: #EEE;
+
+  main {
+    display: flex;
+    flex-direction: column;
+    margin: 0px auto 0;
+    width: 1000px;
+    background-color: white;
+    }
+
+  h1 {
+    color: #244751;
+  }
+  .clear_all{
+    float:right;
+  }
+
+  .popup-overlay {
+    visibility:hidden;
+    position:absolute;
+    background-color: white;
+    border:3px solid #666666;
+    width:50%;
+    height:50%;
+    left:25%;
+    }
+
+  .popup-content {
+    visibility:hidden;
+    }
+  .popup-overlay.active{
+    visibility:visible;
+    }
+
+  .popup-content.active {
+    visibility:visible;
+    background-color: white;
+    }
+}

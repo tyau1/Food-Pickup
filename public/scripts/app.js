@@ -29,7 +29,7 @@ $(() => {
         </h3>
 
       `)
-      .appendTo($("section"));
+      .appendTo($(".total_price"));
 
     $(".add_button").click(function(e){
       const i = Number($(e.target).parent().parent().find('.index').text())-1;

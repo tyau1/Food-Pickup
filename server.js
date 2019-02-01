@@ -53,8 +53,6 @@ app.get("/menu", (req, res) => {
 });
 
 app.post("/menu", (req, res) => {
-  const client = require('twilio')(accountSid, authToken);
-
   client.messages.create(
     {
       to: '+16047156043',
@@ -70,6 +68,10 @@ app.post("/menu", (req, res) => {
 
 app.get("/confirmation", (req, res) => {
   res.render("confirmation");
+});
+
+app.get("/order", (req, res) => {
+  res.render("order");
 });
 
 app.listen(PORT, () => {

@@ -11,7 +11,17 @@
 }
 
 #nav-bar .header{
-  display: inline-flex;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
   font-size: 200%;
-  margin-top: 20px;
+  padding:20px 10px 20px 20px;
+}
+
+#nav-bar .nav_restaurant{
+  display:flex;
+  flex-direction: row;
+  justify-content: space-around;
+  font-size: 200%;
+  padding: 20px;
 }

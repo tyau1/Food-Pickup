@@ -44,13 +44,12 @@ body {
     .order_section{
       display: flex;
       flex-direction: row;
+      justify-content: flex-end;
       background-color: #07A7C4;
       height: 100px;
 
       .order_now{
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-end;
+
         align-items: flex-end;
         margin-top: 18px;
         padding: 20px 30px;

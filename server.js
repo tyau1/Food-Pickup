@@ -53,6 +53,7 @@ app.get("/menu", (req, res) => {
 });
 
 app.post("/menu", (req, res) => {
+<<<<<<< HEAD
   client.messages.create(
     {
       to: '+16047156043',
@@ -64,6 +65,21 @@ app.post("/menu", (req, res) => {
       res.redirect("/confirmation");
     }
   )
+=======
+  // const client = require('twilio')(accountSid, authToken);
+  res.redirect("/confirmation");
+  // client.messages.create(
+  //   {
+  //     to: '+16047156043',
+  //     from: '+16042108661',
+  //     body: 'This is the twilio test!!',
+  //   },
+  //   (err, message) => {
+  //     console.log(message.sid);
+  //     res.redirect("/confirmation");
+  //   }
+  // )
+>>>>>>> 39ff127164b67683c89bcca79a41f8216070bf44
 });
 
 app.get("/confirmation", (req, res) => {

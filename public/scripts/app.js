@@ -1,8 +1,5 @@
 
 
-
-
-
 $(() => {
   $.ajax({
     method: "GET",
@@ -23,7 +20,7 @@ $(() => {
         .appendTo($("table"));
       num.push(0);
     })
-    
+
     $(".add_button").click(function(e){
       const i = Number($(e.target).parent().parent().find('.index').text())-1;
       console.log(i);
@@ -35,7 +32,19 @@ $(() => {
       num[j] = num[j] - 1;
       $(e.target).parent().parent().find('.counter').text(num[j]);
     });
-    
+
   });
 });
 
+$(".open").on("click", function () {
+$(".popup-content").addClass("active");
+});
+
+$(".close, .popup").on("click", function () {
+  $(".popup, .popup-content").removeClass("active");
+});
+
+$(document).on("load", () => {
+
+  alert("hello")
+})

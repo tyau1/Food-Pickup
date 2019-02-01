@@ -28,7 +28,7 @@ $(() => {
         <h3>Total price:$
           <a>0</a>
           <button class="clear_all">clear all</button>
-          <button>order</button>
+          
         </h3>
 
       `)

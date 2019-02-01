@@ -2,17 +2,17 @@
 
 require('dotenv').config();
 
-const PORT        = process.env.PORT || 8080;
-const ENV         = process.env.ENV || "development";
-const express     = require("express");
-const bodyParser  = require("body-parser");
-const sass        = require("node-sass-middleware");
-const app         = express();
+const PORT = process.env.PORT || 8080;
+const ENV = process.env.ENV || "development";
+const express = require("express");
+const bodyParser = require("body-parser");
+const sass = require("node-sass-middleware");
+const app = express();
 
-const knexConfig  = require("./knexfile");
-const knex        = require("knex")(knexConfig[ENV]);
-const morgan      = require('morgan');
-const knexLogger  = require('knex-logger');
+const knexConfig = require("./knexfile");
+const knex = require("knex")(knexConfig[ENV]);
+const morgan = require('morgan');
+const knexLogger = require('knex-logger');
 
 // Seperated Routes for each Resource
 const foodsRoutes = require("./routes/foods");
@@ -55,16 +55,17 @@ app.get("/menu", (req, res) => {
 app.post("/menu", (req, res) => {
   const client = require('twilio')(accountSid, authToken);
 
-client.messages.create(
-  {
-    to: '+16047156043',
-    from: '+16042108661',
-    body: 'This is the twilio test!!',
-  },
-  (err, message) => {
-    console.log(message.sid);
-  }
-);
+  client.messages.create(
+    {
+      to: '+16047156043',
+      from: '+16042108661',
+      body: 'This is the twilio test!!',
+    },
+    (err, message) => {
+      console.log(message.sid);
+      res.redirect("/confirmation");
+    }
+  )
 });
 
 app.get("/confirmation", (req, res) => {

@@ -48,6 +48,11 @@
               <!--popup's close button-->
               <form action="/menu" method="post" class="form">
                 <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
+                <input type="hidden" name="foods[0][name]" value='item 0'>
+                <input type="text" name="foods[0][amt]" value='5'>
+                <input type="text" name="foods[1][name]" value='item 1'>
+                <input type="text" name="foods[2][name]" value='item 2'>
+                <input type="text" name="foods[3][name]" value='item 3'>
                 <button class="confirm-order">Confirm order</button>
                 <table class="order_table"></table>
               </form>

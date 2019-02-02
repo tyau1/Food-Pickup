@@ -63,8 +63,8 @@ $(() => {
       $('div').find('a').text(0);
     });
     $(".open").on("click", function () {
-      $(".add_button").mousedown();
-      $(".minus_button").mousedown();
+      $(".add_button").attr('disabled',true);
+      $(".minus_button").attr('disabled',true);
       $(".popup-content").addClass("active");
       foods.forEach((food,index)=>{
         if (num[index]===0){
@@ -85,8 +85,8 @@ $(() => {
           .appendTo($("#order_total"));
       })
     $(".close, .popup").on("click", function () {
-      $(".add_button").mouseup();
-      $(".minus_button").mouseup();
+      $(".add_button").attr('disabled',false);
+      $(".minus_button").attr('disabled',false);
       $(".temp").remove();
       $(".popup, .popup-content").removeClass("active");
 

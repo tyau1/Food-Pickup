@@ -59,10 +59,6 @@ app.post("/order_check", (req, res) => {
 });
 
 app.post("/menu", (req, res) => {
-<<<<<<< HEAD
-  // WHEN ORDER IS PLACED SEND UNIQUE URL TO RESTAURANT
-  res.redirect("/confirmation");
-=======
   
   knex('orders').del()
     .then(function () {
@@ -93,7 +89,6 @@ app.post("/menu", (req, res) => {
   //     res.redirect("/confirmation");
   //   }
   // )
->>>>>>> 7f15e0d0ce4ea3f07c79bc358aea7ab40843c58c
 });
 
 app.get("/confirmation", (req, res) => {

@@ -1,5 +1,6 @@
 
 
+//JQUERY in picture
 $(() => {
   $.ajax({
     method: "GET",
@@ -31,7 +32,6 @@ $(() => {
 
       `)
       .appendTo($("#total_price"));
-    
 
     $(".add_button").click(function(e){
       const i = Number($(e.target).parent().parent().find('.index').text())-1;
@@ -66,7 +66,7 @@ $(() => {
       $(".add_button").attr('disabled',true);
       $(".minus_button").attr('disabled',true);
       $(".open").attr('disabled',true);
-      
+
       $(".popup-content").addClass("active");
       foods.forEach((food,index)=>{
         if (num[index] === 0){
@@ -80,7 +80,7 @@ $(() => {
             .appendTo($(".order_table"));
           $(`<input class='temp' type='hidden' name='foods[${food.name}]' value='${num[index]}'>`).html(``)
             .appendTo($(".hidden"));
-            
+
         }});
 
         $("<a class = 'temp'>").html(

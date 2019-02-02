@@ -1,7 +1,7 @@
 
 body {
-  background-color: #EEE;
-
+  background-color: black !important;
+  
   main {
    display: flex;
     flex-direction: column;
@@ -23,7 +23,8 @@ body {
 
       thead {
 	      th {
-          background-color: #07A7C4;
+          background-color: black;
+          color: white;
           padding: 15px;
 	      }
       }
@@ -86,4 +87,14 @@ body {
     visibility:visible;
     background-color: white;
     }
+}
+
+.add_button {
+  border-radius: 50%;
+  border: 1px solid lightcoral
+}
+
+.minus_button {
+  border-radius: 50%;
+  border: 1px solid lightcoral
 }

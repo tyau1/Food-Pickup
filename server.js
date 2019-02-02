@@ -53,19 +53,8 @@ app.get("/menu", (req, res) => {
 });
 
 app.post("/menu", (req, res) => {
-  // const client = require('twilio')(accountSid, authToken);
+  // WHEN ORDER IS PLACED SEND UNIQUE URL TO RESTAURANT
   res.redirect("/confirmation");
-  // client.messages.create(
-  //   {
-  //     to: '+16047156043',
-  //     from: '+16042108661',
-  //     body: 'This is the twilio test!!',
-  //   },
-  //   (err, message) => {
-  //     console.log(message.sid);
-  //     res.redirect("/confirmation");
-  //   }
-  // )
 });
 
 app.get("/confirmation", (req, res) => {
@@ -74,6 +63,66 @@ app.get("/confirmation", (req, res) => {
 
 app.get("/order", (req, res) => {
   res.render("order");
+});
+
+app.post("/order/15mins", (req, res) => {
+
+  client.messages.create(
+    {
+      to: '+16047156043',
+      from: '+16042108661',
+      body: 'Your order will be ready for pickup in 15 minutes!',
+    },
+    (err, message) => {
+      console.log(message.sid);
+    }
+  )
+  res.redirect("/confirmation");
+});
+
+app.post("/order/30mins", (req, res) => {
+
+  client.messages.create(
+    {
+      to: '+16047156043',
+      from: '+16042108661',
+      body: 'Your order will be ready for pickup in 30 minutes!',
+    },
+    (err, message) => {
+      console.log(message.sid);
+    }
+  )
+  res.redirect("/confirmation");
+});
+
+app.post("/order/60mins", (req, res) => {
+
+  client.messages.create(
+    {
+      to: '+16047156043',
+      from: '+16042108661',
+      body: 'Your order will be ready for pickup in 60 minutes!',
+    },
+    (err, message) => {
+      console.log(message.sid);
+    }
+  )
+  res.redirect("/confirmation");
+});
+
+app.post("/order/ready", (req, res) => {
+
+  client.messages.create(
+    {
+      to: '+16047156043',
+      from: '+16042108661',
+      body: 'Your order ready to be picked up!',
+    },
+    (err, message) => {
+      console.log(message.sid);
+    }
+  )
+  res.redirect("/confirmation");
 });
 
 app.listen(PORT, () => {

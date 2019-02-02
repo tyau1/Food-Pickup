@@ -1,0 +1,19 @@
+body {
+  background-color: red;
+
+  main {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 10000px;
+    justify-content: flex-end;
+    background-color: black;
+
+    .card {
+      background-color: white;
+      margin: auto;
+
+    }
+  }
+
+}

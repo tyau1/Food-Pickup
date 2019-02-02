@@ -3,15 +3,63 @@ body {
   background-color: #EEE;
 
   main {
-    display: flex;
+   display: flex;
     flex-direction: column;
     margin: 0px auto 0;
     width: 1000px;
     background-color: white;
+    //padding-top: 40px;
+    padding-bottom: 100%;
+
+
     }
+
+    #menu_table {
+      width: 800px;
+      border-collapse: collapse;
+      overflow: hidden;
+	    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+      margin:auto;
+
+      thead {
+	      th {
+          background-color: #07A7C4;
+          padding: 15px;
+	      }
+      }
+
+        tr {
+
+          &:hover {
+            background-color: #C6DEFF;
+          }
+        }
+
+        td {
+          padding: 15px;
+
+	        color: black;
+          position: relative;
+          &:hover {
+            &:before {
+              content: "";
+              position: absolute;
+              left: 0;
+              right: 0;
+              top: -9999px;
+              bottom: -9999px;
+              background-color: #C6DEFF;
+              z-index: -1;
+            }
+          }
+
+      }
+
+  }
 
   h1 {
     color: #244751;
+
   }
   .clear_all{
     float:right;

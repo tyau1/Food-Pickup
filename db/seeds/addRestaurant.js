@@ -70,11 +70,6 @@ exports.seed = function(knex, Promise) {
                     restaurant_id: knex.select('id').from('restaurants')
                   },
                   {
-                    name:'BEEF UDON',
-                    price: 8.95,
-                    restaurant_id: knex.select('id').from('restaurants')
-                  },
-                  {
                     name:'SPICY PORK UDON',
                     price: 8.95,
                     restaurant_id: knex.select('id').from('restaurants')

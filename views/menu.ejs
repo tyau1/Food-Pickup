@@ -46,13 +46,18 @@
       <div class="popup-overlay">
         <!--Creates the popup content-->
         <div class="popup-content">
-          <h3>Phone number</h3>
+          <h3>Phone number</h3><span id="order_total"></span>
           
           <div><span class="note">Format: 123-456-7890</span></div>
           <!--popup's close button-->
           <form action="/menu" method="post" class="form">
             <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
-            <button class="confirm-order">Confirm order</button><span id="order_total"></span>
+            <button class="confirm-order">Confirm order</button>
+            <!-- <input type="hidden" name="test[][item1]" value="0">
+            <input type="hidden" name="test[][item2]" value="1">
+            <input type="hidden" name="test[][item3]" value="2">
+            <input type="hidden" name="test[][item4]" value="3"> -->
+            <div class="hidden"></div>
             <table class="order_table"></table>
           </form>
           <button class="close">Cancel</button>

@@ -52,9 +52,48 @@ app.get("/menu", (req, res) => {
   res.render("menu");
 });
 
+app.post("/order_check", (req, res) => {
+  
+
+
+});
+
 app.post("/menu", (req, res) => {
+<<<<<<< HEAD
   // WHEN ORDER IS PLACED SEND UNIQUE URL TO RESTAURANT
   res.redirect("/confirmation");
+=======
+  
+  knex('orders').del()
+    .then(function () {
+      return Promise.all([
+        knex('orders')
+        .insert([
+          { 
+          phone_number:`${req.body.phone}`,
+          food_name_and_amount: 'mega bowl 3',
+          total_price:'$10.75'},
+          {phone_number:'testing3',
+          food_name_and_amount: 'mega bowl 4',
+          total_price:'$10.75'}
+        ])
+      ])})
+
+
+  res.redirect("/confirmation");
+  // const client = require('twilio')(accountSid, authToken);
+  // client.messages.create(
+  //   {
+  //     to: '+16047156043',
+  //     from: '+16042108661',
+  //     body: 'This is the twilio test!!',
+  //   },
+  //   (err, message) => {
+  //     console.log(message.sid);
+  //     res.redirect("/confirmation");
+  //   }
+  // )
+>>>>>>> 7f15e0d0ce4ea3f07c79bc358aea7ab40843c58c
 });
 
 app.get("/confirmation", (req, res) => {

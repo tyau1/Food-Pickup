@@ -67,14 +67,16 @@ app.post("/menu", (req, res) => {
         .insert([
           {
           phone_number:`${req.body.phone}`,
-          food_name_and_amount: 'mega bowl 3',
+ 
           total_price:'$10.75'},
           {phone_number:'testing3',
-          food_name_and_amount: 'mega bowl 4',
           total_price:'$10.75'}
         ])
+        .then()
       ])})
 
+      //foods and order 
+      //id, food_id, qty, price, orderid
 
   res.redirect("/confirmation");
   // const client = require('twilio')(accountSid, authToken);

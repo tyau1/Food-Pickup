@@ -7,14 +7,15 @@ $(() => {
   }).done((foods) => {
     let num = [];
     let total = 0;
+    let txt = "";
     foods.forEach((food,index)=> {
       $("<tr>").html(
         `
         <td class="index">${index+1}</td>
         <td class="food">${food.name}</td>
-        <td class="minus_button"><button >-</button><td>
+        <td><button class="minus_button">-</button><td>
         <td class="counter">0</td>
-        <td class="add_button"><button>+</button><td>
+        <td><button class="add_button">+</button><td>
         <td class="price">$<a type="number">${food.price}</a></td>
         `)
         .appendTo($("#menu_table"));
@@ -62,11 +63,34 @@ $(() => {
       $('div').find('a').text(0);
     });
     $(".open").on("click", function () {
+      $(".add_button").mousedown();
+      $(".minus_button").mousedown();
       $(".popup-content").addClass("active");
-      });
-      $(".close, .popup").on("click", function () {
-        $(".popup, .popup-content").removeClass("active");
-      });
+      foods.forEach((food,index)=>{
+        if (num[index]===0){
+
+        }else{
+          $("<tr class = 'temp'>").html(
+            `
+            <td>${food.name}</td>
+            <td>amt: ${num[index]}</td>
+            `)
+            .appendTo($(".order_table"));
+            
+        }});
+        $("<a class = 'temp'>").html(
+          `
+          Total: $${total}
+          `)
+          .appendTo($("#order_total"));
+      })
+    $(".close, .popup").on("click", function () {
+      $(".add_button").mouseup();
+      $(".minus_button").mouseup();
+      $(".temp").remove();
+      $(".popup, .popup-content").removeClass("active");
+
+    });
     
 
   });

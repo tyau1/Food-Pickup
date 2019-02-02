@@ -52,9 +52,32 @@ app.get("/menu", (req, res) => {
   res.render("menu");
 });
 
+app.post("/order_check", (req, res) => {
+  
+
+
+});
+
 app.post("/menu", (req, res) => {
-  // const client = require('twilio')(accountSid, authToken);
+  
+  knex('orders').del()
+    .then(function () {
+      return Promise.all([
+        knex('orders')
+        .insert([
+          { 
+          phone_number:`${req.body.phone}`,
+          food_name_and_amount: 'mega bowl 3',
+          total_price:'$10.75'},
+          {phone_number:'testing3',
+          food_name_and_amount: 'mega bowl 4',
+          total_price:'$10.75'}
+        ])
+      ])})
+
+
   res.redirect("/confirmation");
+  // const client = require('twilio')(accountSid, authToken);
   // client.messages.create(
   //   {
   //     to: '+16047156043',

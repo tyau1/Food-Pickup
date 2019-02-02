@@ -96,33 +96,33 @@ $(document).ready(function () {
   });
 
 
-  $("#a").on("click", function () {
-    $.ajax({
-      method: "POST",
-      url: "/order/15mins"
-    }).done
-  });
+  // $("#a").on("click", function () {
+  //   $.ajax({
+  //     method: "POST",
+  //     url: "/order/15mins"
+  //   }).done
+  // });
 
-  $("#b").on("click", function () {
-    $.ajax({
-      method: "POST",
-      url: "/order/30mins"
-    }).done
-  });
+  // $("#b").on("click", function () {
+  //   $.ajax({
+  //     method: "POST",
+  //     url: "/order/30mins"
+  //   }).done
+  // });
 
-  $("#c").on("click", function () {
-    $.ajax({
-      method: "POST",
-      url: "/order/60mins"
-    }).done
-  });
+  // $("#c").on("click", function () {
+  //   $.ajax({
+  //     method: "POST",
+  //     url: "/order/60mins"
+  //   }).done
+  // });
 
-  $("#d").on("click", function () {
-    $.ajax({
-      method: "POST",
-      url: "/order/ready"
-    }).done
-  });
+  // $("#d").on("click", function () {
+  //   $.ajax({
+  //     method: "POST",
+  //     url: "/order/ready"
+  //   }).done
+  // });
 
 });
 

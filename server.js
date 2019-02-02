@@ -111,7 +111,7 @@ app.post("/order/15mins", (req, res) => {
       console.log(message.sid);
     }
   )
-  res.redirect("/confirmation");
+  res.redirect("/owner");
 });
 
 app.post("/order/30mins", (req, res) => {
@@ -126,7 +126,7 @@ app.post("/order/30mins", (req, res) => {
       console.log(message.sid);
     }
   )
-  res.redirect("/confirmation");
+  res.redirect("/owner");
 });
 
 app.post("/order/60mins", (req, res) => {
@@ -141,7 +141,7 @@ app.post("/order/60mins", (req, res) => {
       console.log(message.sid);
     }
   )
-  res.redirect("/confirmation");
+  res.redirect("/owner");
 });
 
 app.post("/order/ready", (req, res) => {
@@ -156,7 +156,11 @@ app.post("/order/ready", (req, res) => {
       console.log(message.sid);
     }
   )
-  res.redirect("/confirmation");
+  res.redirect("/owner");
+});
+
+app.get("/owner", (req, res) => {
+  res.render("owner");
 });
 
 app.listen(PORT, () => {

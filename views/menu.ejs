@@ -4,10 +4,10 @@
     <title>menu Page</title>
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-
+    <link rel=“stylesheet” href=“https://use.fontawesome.com/releases/v5.6.3/css/all.css” integrity=“sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/” crossorigin=“anonymous”>
     <link rel="stylesheet" href="/styles/menu.css" type="text/css" />
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
-
+    
   </head>
 
   <body>
@@ -16,32 +16,27 @@
     </nav>
     <main>
       <h1>EBI TEN MENU</h1>
-
       <table id="menu_table">
-        <thead>
         <tr>
-          <th>
+          <td>
             #
-          </th>
-          <th class="food">
+          </td>
+          <td class="food">
             FOODS
-          </th>
-          <th>DROP</th>
-          <th></th>
-          <th>AMOUNT</th>
-          <th>PICK</th>
-          <th></th>
-          <th class="price">
+          </td>
+          <td>DROP</td>
+          <td></td>
+          <td>AMOUNT</td>
+          <td>PICK</td>
+          <td></td>
+          <td class="price">
             PRICE
-          </th>
+          </td>
         </tr>
-
       </table>
-
       <section id="total_price">
 
       </section>
-
       <!--Creates the popup body-->
       <div class="popup-overlay">
         <!--Creates the popup content-->
@@ -57,32 +52,10 @@
         </div>
       </div>
       <button class="open">Order Now</button>
-      <!--Creates the popup body-->
-        <div class="popup-overlay">
-            <!--Creates the popup content-->
-            <div class="popup-content">
-              <h3>Phone number</h3>
-
-              <div><span class="note">Format: 123-456-7890</span></div>
-              <!--popup's close button-->
-              <form action="/menu" method="post" class="form">
-                <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
-                <button class="confirm-order">Confirm order</button>
-                <table class="order_table"></table>
-              </form>
-              <button class="close">Cancel</button><span id="order_total"></span>
-            </div>
-          </div>
-
-
     </main>
-
+    
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-<<<<<<< HEAD
-
-=======
+   
     <script type="text/javascript" src="/scripts/app.js"></script>
->>>>>>> 50f2d0183c549a742744463cd96fd51698003820
   </body>
-
 </html>

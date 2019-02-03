@@ -13,22 +13,25 @@
 
 <body>
     <nav id="nav-bar">
-        <span class="header">Home</span>
+        <span class="header">Confirmation The Order</span>
     </nav>
-    <h3>Please confirm when order will be ready?</h3>
+    <main class="container">
+    <center><h3>Please confirm when order will be ready?</h3></center>
 
-    <form action="/order/15mins" method="POST">
+   <center><form action="/order/15mins" method="POST">
         <button class="time_button" id="a" type="submit"> 15 minutes </button>
-    </form>
+    </form></center>
 
-    <form action="/order/30mins" method="POST">
+    <center><form action="/order/30mins" method="POST">
         <button class="time_button" id="b" type="submit"> 30 minutes </button>
-    </form>
+    </form></center>
 
-    <form action="/order/60mins" method="POST">
+    <center><form action="/order/60mins" method="POST">
         <button class="time_button" id="c" type="submit"> 60 minutes </button>
-    </form>
+    </form></center>
 
+
+    </main>
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
 </body>

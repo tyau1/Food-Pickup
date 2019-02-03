@@ -83,9 +83,9 @@ app.post("/menu", (req, res) => {
         total_price: `${req.body.total_price}`
   }).returning('id')
   .then((id) => {
-    
+
     let orderid = id[0];
-    
+
     tempVar["id"]= orderid;
     for (var key in tempVar.foods) {
       var result = getFoodId(key);
@@ -99,18 +99,18 @@ app.post("/menu", (req, res) => {
 
         }).then(()=>{})
 
-     } 
+     }
     }).then(()=>{
-     
+
       return knex('foods_and_orders').insert(fooditemsData);
       }).then(()=>{
       res.render("confirmation",{test: tempVar});
     })
-    
+
 });
 
 app.get("/confirmation", (req, res) => {
-  
+
   res.render("confirmation");
 });
 
@@ -175,7 +175,7 @@ app.post("/order/ready", (req, res) => {
       console.log(message.sid);
     }
   )
-  res.redirect("/confirmation");
+  res.redirect("/");
 });
 
 app.get("/owner", (req, res) => {

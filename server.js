@@ -88,7 +88,7 @@ app.post("/menu", (req, res) => {
     tempVar["id"]= orderid;
     for (var key in tempVar.foods) {
       var result = getFoodId(key);
-      
+
       result.then((item) => {
         let fooditemsData=[]
         fooditemsData.push({
@@ -97,17 +97,17 @@ app.post("/menu", (req, res) => {
           qty: tempVar.foods[key],
           price: (((Math.round((Number(item[0].price) * Number(tempVar.foods[key]))*100))/100).toString())
           });
-         
+
         })
-      
-     } 
-         
+
+     }
+
     }).then(()=>{knex('foods_and_orders').insert(fooditemsData);})
 
     res.render("confirmation",{test: tempVar});
-  
+
      //for loop
-    
+
 
     //get the Food Id an
     //data is inserted into orders table
@@ -222,6 +222,8 @@ app.post("/order/ready", (req, res) => {
 app.get("/owner", (req, res) => {
   res.render("owner");
 })
+
+
 
 app.listen(PORT, () => {
   console.log("Example app listening on port " + PORT);

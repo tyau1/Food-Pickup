@@ -1,23 +1,33 @@
 
 body {
-    background-color:black;
-
+    background-color: black;
+    // background-color: red;
+  
     main {
-     display: flex;
+      display: flex;
       flex-direction: column;
       margin: 0px auto 0;
       width: 1000px;
       background-color: white;
+      padding-bottom: 10%;
 
-      .open {
-        position: fixed;
-        bottom: 20px;
-        right: 74px;
-        width:100px;
-        border-radius: 10px;
-        border: 1px solid grey;
-        height: 50px;
-    }
+
+    //   .open {
+    //     position: fixed;
+    //     bottom: 20px;
+    //     right: 74px;
+    //     width:100px;
+    //     border-radius: 10px;
+    //     border: 1px solid grey;
+    //     height: 50px;
+    // }
+.order_table2{
+    margin: auto;
+    margin-bottom: 20px;
+}
+    
+
+    
     }
 }
 
@@ -25,11 +35,18 @@ body {
     color: white;
 }
 
-.thankyou {
-    padding-left: 20px;
-}
+// .thankyou {
+//     padding-left: 20px;
+// }
 
 .order_again {
     color: black;
     padding-left: 20px;
+}
+
+.sushi {
+    display: flex;
+    flex-direciton:row;
+    justify-content: flex-start;
+
 }

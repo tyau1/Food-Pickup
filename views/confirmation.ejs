@@ -16,17 +16,35 @@
       </nav>
     <main class="container">
         <section class="thankyou">
-            <h2>Thank You For Your Order</h2> 
-            <div>$<%= test.total_price %></div>
-            <%= test.phone %>
-            <% for(var key in test.foods){ %>
-              <%= key%>
-              <%= test.foods[key]%>
+            <img class="sushi" src="/images/thankyou.jpg">
+            <table class="order_table1">
+              <tr>
+                <td>Order Total:</td>
+              <td>$<%= test.total_price %></td>
+              </tr>
+              <tr>
+                  <td>Phone Number:</td>
+              <td><%= test.phone %></td>
+              </tr>
+            </table>
+
+            <table border="1" class="order_table2">
+               <tr>
+                 <td>Item</td>
+                 <td>Quantity</td>
+               </tr>
+              <tr>
+              <% for(var key in test.foods){ %>
+             <td><%= key%></td>
+              <td><%= test.foods[key]%></td>
+
+              </tr>
+              <br>
             <% }%>
 
-        </div>
+              </table>
 
       </section>
-      <a href="http://localhost:8080/menu" class="order_again">Order Again!</a>
+      <center><a href="http://localhost:8080/menu" class="order_again">Order Again!</a></center>
   </body>
 </html>

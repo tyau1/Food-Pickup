@@ -16,7 +16,16 @@
       </nav>
     <main class="container">
         <section class="thankyou">
-            <h2>Thank You For Your Order!</h2>
+            <h2>Thank You For Your Order</h2> 
+            <%= test.total_price %>
+            <%= test.phone %>
+            <% for(var key in test.foods){ %>
+              <%= key%>
+              <%= test.foods[key]%>
+            <% }%>
+
+
+
         </div>
 
       </section>

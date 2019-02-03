@@ -4,7 +4,6 @@ exports.up = function(knex, Promise) {
     knex.schema.createTable('orders', function (table) {
       table.increments();
       table.string('phone_number');
-      table.string('food_name_and_amount');
       table.string('total_price');
     })
   ])

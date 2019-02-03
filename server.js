@@ -96,9 +96,9 @@ app.post("/menu", (req, res) => {
           qty: Number(tempVar.foods[key]),
           price: (((Math.round((Number(item[0].price) * Number(tempVar.foods[key]))*100))/100).toString())
           });
-          
+
         }).then(()=>{})
-        
+
      } 
     }).then(()=>{
      

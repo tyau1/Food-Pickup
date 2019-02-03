@@ -77,77 +77,36 @@ function getFoodId(name){
 app.post("/menu", (req, res) => {
   let tempVar=req.body;
   let fooditemsData = [];
-  knex('orders')
+  return knex('orders')
   .insert({
         phone_number:`${req.body.phone}`,
         total_price: `${req.body.total_price}`
   }).returning('id')
   .then((id) => {
     
-    let orderid = id;
+    let orderid = id[0];
+    console.log('orderid ',orderid);
     tempVar["id"]= orderid;
     for (var key in tempVar.foods) {
       var result = getFoodId(key);
-      
-      result.then((item) => {
-        let fooditemsData=[]
+      return result.then((item) => {
         fooditemsData.push({
           food_id: item[0].id,
           order_id: orderid,
-          qty: tempVar.foods[key],
+          qty: Number(tempVar.foods[key]),
           price: (((Math.round((Number(item[0].price) * Number(tempVar.foods[key]))*100))/100).toString())
           });
-         
-        })
-      
+          
+        }).then(()=>{console.log('in the loop: ', fooditemsData);})
+        
      } 
-         
-    }).then(()=>{knex('foods_and_orders').insert(fooditemsData);})
-
-    res.render("confirmation",{test: tempVar});
-  
-     //for loop
+    }).then(()=>{
+      console.log('afterloop: ', fooditemsData)
+      return knex('foods_and_orders').insert(fooditemsData);
+      }).then(()=>{
+      res.render("confirmation",{test: tempVar});
+    })
     
-
-    //get the Food Id an
-    //data is inserted into orders table
-    //Now we need to push it into the 
-     
-
-  
-
-  // knex('orders').del()
-  //   .then(function () {
-  //     return Promise.all([
-  //       knex('orders')
-  //       .insert([
-  //         {
-  //         phone_number:`${req.body.phone}`,
- 
-  //         total_price:``},
-  //         {phone_number:'testing3',
-  //         total_price:'$10.75'}
-  //       ])
-  //       .then()
-  //     ])})
-
-      //foods and order 
-      //id, food_id, qty, price, orderid
-  
-  //const query = JSON.stringify(tempVar);
-  //res.render("confirmation",{test: tempVar});
-  // const client = require('twilio')(accountSid, authToken);
-  // client.messages.create(
-  //   {
-  //     to: '+16047156043',
-  //     from: '+16042108661',
-  //     body: 'This is the twilio test!!',
-  //   },
-  //   (err, message) => {
-  //     console.log(message.sid);
-  //     res.redirect("/confirmation");
-  //   }
-  // )
 });
 
 app.get("/confirmation", (req, res) => {

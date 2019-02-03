@@ -16,8 +16,8 @@ const knexLogger = require('knex-logger');
 
 // Seperated Routes for each Resource
 const foodsRoutes = require("./routes/foods");
-const accountSid = 'AC8d51779e1b2ffff782ba05b0c8265db4';
-const authToken = '00142b9ccbafd8ea41cad4428d9d09d0';
+const accountSid = 'ACb563e253710f1247154c2c5c51ba57bc';
+const authToken = 'aff4f2de6cae1ab86287c5c8ab9c3991';
 
 // require the Twilio module and create a REST client
 const client = require('twilio')(accountSid, authToken);
@@ -60,6 +60,7 @@ app.post("/order_check", (req, res) => {
 
 app.post("/menu", (req, res) => {
   console.log(req.body);
+  //orm to delete the record and then firing the insert command.  
   knex('orders').del()
     .then(function () {
       return Promise.all([
@@ -104,14 +105,14 @@ app.post("/order/15mins", (req, res) => {
   client.messages.create(
     {
       to: '+16047156043',
-      from: '+16042108661',
+      from: '+16042432302',
       body: 'Your order will be ready for pickup in 15 minutes!',
     },
     (err, message) => {
       console.log(message.sid);
     }
   )
-  res.redirect("/confirmation");
+  res.redirect("/owner");
 });
 
 app.post("/order/30mins", (req, res) => {
@@ -119,14 +120,14 @@ app.post("/order/30mins", (req, res) => {
   client.messages.create(
     {
       to: '+16047156043',
-      from: '+16042108661',
+      from: '+16042432302',
       body: 'Your order will be ready for pickup in 30 minutes!',
     },
     (err, message) => {
       console.log(message.sid);
     }
   )
-  res.redirect("/confirmation");
+  res.redirect("/owner");
 });
 
 app.post("/order/60mins", (req, res) => {
@@ -134,14 +135,14 @@ app.post("/order/60mins", (req, res) => {
   client.messages.create(
     {
       to: '+16047156043',
-      from: '+16042108661',
+      from: '+16042432302',
       body: 'Your order will be ready for pickup in 60 minutes!',
     },
     (err, message) => {
       console.log(message.sid);
     }
   )
-  res.redirect("/confirmation");
+  res.redirect("/owner");
 });
 
 app.post("/order/ready", (req, res) => {
@@ -149,7 +150,7 @@ app.post("/order/ready", (req, res) => {
   client.messages.create(
     {
       to: '+16047156043',
-      from: '+16042108661',
+      from: '+16042432302',
       body: 'Your order ready to be picked up!',
     },
     (err, message) => {
@@ -158,6 +159,10 @@ app.post("/order/ready", (req, res) => {
   )
   res.redirect("/confirmation");
 });
+
+app.get("/owner", (req, res) => {
+  res.render("owner");
+})
 
 app.listen(PORT, () => {
   console.log("Example app listening on port " + PORT);

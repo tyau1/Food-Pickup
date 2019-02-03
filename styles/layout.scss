@@ -1,6 +1,6 @@
 
 body {
-  background-color: white;
+  background-color: black;
   // background-color: red;
 
   main {
@@ -9,8 +9,7 @@ body {
     margin: 0px auto 0;
     width: 1000px;
     background-color: white;
-    //padding-top: 40px;
-    padding-bottom: 100%;
+
 
     img{
        width:700px;
@@ -26,7 +25,7 @@ body {
         display: flex;
         flex-direction: row;
         justify-content: flex-end;
-        background-color: rgb(75,84,108);
+        background-color: #333434;
         border-left: 4px solid white;
         width:400px;
         height:420px;
@@ -56,7 +55,7 @@ body {
         border-radius: 3px;
         width:300px;
           &:hover {
-            background-color: rgb(75,84,108); /* Green */
+            background-color:#333434; /* Green */
             color: white;
         }
       }

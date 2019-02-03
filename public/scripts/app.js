@@ -24,11 +24,13 @@ $(() => {
     })
     $("<div>").html(
       `
-        <h3>Total price:$
-          <a>0</a>
-          <button class="clear_all">clear all</button>
+        <button class="running_total">Total Price:
+        <br>
+        <div>$ <a>0</a></div> </button>
 
-        </h3>
+          <button class="clear_all">Clear All</button>
+
+
 
       `)
       .appendTo($("#total_price"));

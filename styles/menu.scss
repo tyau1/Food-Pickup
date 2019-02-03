@@ -1,4 +1,8 @@
 
+.header {
+  color: white;
+}
+
 body {
   background-color: black !important;
   
@@ -8,9 +12,17 @@ body {
     margin: 0px auto 0;
     width: 1000px;
     background-color: white;
-    //padding-top: 40px;
-    padding-bottom: 100%;
+    margin-bottom: 20px;
 
+    .open {
+      position: fixed;
+      bottom: 20px;
+      right: 74px;
+      width:100px;
+      border-radius: 10px;
+      border: 1px solid grey;
+      height: 50px;
+    }
 
     }
 
@@ -32,12 +44,12 @@ body {
         tr {
 
           &:hover {
-            background-color: #C6DEFF;
+            background-color:lightgrey;
           }
         }
 
         td {
-          padding: 15px;
+          padding: 5px;
 
 	        color: black;
           position: relative;
@@ -63,7 +75,13 @@ body {
 
   }
   .clear_all{
-    float:right;
+    position: fixed;
+    bottom: 80px;
+    right: 74px;
+    width:100px;
+    border-radius: 10px;
+    border: 1px solid grey;
+    font-size: 16px;
   }
 
   .popup-overlay {
@@ -85,16 +103,34 @@ body {
 
   .popup-content.active {
     visibility:visible;
-    background-color: white;
+    background-color:white;
+    position: fixed;
+    height: 40%;
+    width: 50%;
+    padding: 20px;
+    border: 1px solid;
+    border-radius: 10px;
+     .confirm-order {
+       border-radius: 10px;
+     }
     }
 }
 
 .add_button {
   border-radius: 50%;
-  border: 1px solid lightcoral
+  border: 1px solid lightgray;
 }
 
 .minus_button {
   border-radius: 50%;
-  border: 1px solid lightcoral
+  border: 1px solid lightgrey;
+}
+
+.running_total {
+  position: fixed;
+  bottom: 120px;
+  right: 74px;
+  border-radius: 10px;
+  border: 1px solid grey;
+  font-size: 16px;
 }

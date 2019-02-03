@@ -1,0 +1,35 @@
+
+body {
+    background-color:black;
+
+    main {
+     display: flex;
+      flex-direction: column;
+      margin: 0px auto 0;
+      width: 1000px;
+      background-color: white;
+
+      .open {
+        position: fixed;
+        bottom: 20px;
+        right: 74px;
+        width:100px;
+        border-radius: 10px;
+        border: 1px solid grey;
+        height: 50px;
+    }
+    }
+}
+
+.header {
+    color: white;
+}
+
+.thankyou {
+    padding-left: 20px;
+}
+
+.order_again {
+    color: black;
+    padding-left: 20px;
+}

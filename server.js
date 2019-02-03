@@ -58,27 +58,84 @@ app.post("/order_check", (req, res) => {
 
 });
 
+function getFoodId(name){
+  return knex.select("*").from("foods")
+      .where('name',name)
+      .then(function(fooditem){
+        return fooditem;
+      })
+}
+
+// function insert(array){
+//   return knex("foods_and_")
+//       .where('name',name)
+//       .then(function(fooditem){
+//         return fooditem;
+//       })
+// }
+
 app.post("/menu", (req, res) => {
-  console.log(req.body);
-  knex('orders').del()
-    .then(function () {
-      return Promise.all([
-        knex('orders')
-        .insert([
-          {
-          phone_number:`${req.body.phone}`,
+  let tempVar=req.body;
+  let fooditemsData = [];
+  knex('orders')
+  .insert({
+        phone_number:`${req.body.phone}`,
+        total_price: `${req.body.total_price}`
+  }).returning('id')
+  .then((id) => {
+    
+    let orderid = id;
+    tempVar["id"]= orderid;
+    for (var key in tempVar.foods) {
+      var result = getFoodId(key);
+      
+      result.then((item) => {
+        let fooditemsData=[]
+        fooditemsData.push({
+          food_id: item[0].id,
+          order_id: orderid,
+          qty: tempVar.foods[key],
+          price: (((Math.round((Number(item[0].price) * Number(tempVar.foods[key]))*100))/100).toString())
+          });
+         
+        })
+      
+     } 
+         
+    }).then(()=>{knex('foods_and_orders').insert(fooditemsData);})
+
+    res.render("confirmation",{test: tempVar});
+  
+     //for loop
+    
+
+    //get the Food Id an
+    //data is inserted into orders table
+    //Now we need to push it into the 
+     
+
+  
+
+  // knex('orders').del()
+  //   .then(function () {
+  //     return Promise.all([
+  //       knex('orders')
+  //       .insert([
+  //         {
+  //         phone_number:`${req.body.phone}`,
  
-          total_price:'$10.75'},
-          {phone_number:'testing3',
-          total_price:'$10.75'}
-        ])
-        .then()
-      ])})
+  //         total_price:``},
+  //         {phone_number:'testing3',
+  //         total_price:'$10.75'}
+  //       ])
+  //       .then()
+  //     ])})
 
       //foods and order 
       //id, food_id, qty, price, orderid
-
-  res.redirect("/confirmation");
+  
+  //const query = JSON.stringify(tempVar);
+  //res.render("confirmation",{test: tempVar});
   // const client = require('twilio')(accountSid, authToken);
   // client.messages.create(
   //   {
@@ -94,6 +151,7 @@ app.post("/menu", (req, res) => {
 });
 
 app.get("/confirmation", (req, res) => {
+  
   res.render("confirmation");
 });
 

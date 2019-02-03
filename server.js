@@ -85,7 +85,7 @@ app.post("/menu", (req, res) => {
   .then((id) => {
     
     let orderid = id[0];
-    console.log('orderid ',orderid);
+    
     tempVar["id"]= orderid;
     for (var key in tempVar.foods) {
       var result = getFoodId(key);
@@ -97,11 +97,11 @@ app.post("/menu", (req, res) => {
           price: (((Math.round((Number(item[0].price) * Number(tempVar.foods[key]))*100))/100).toString())
           });
           
-        }).then(()=>{console.log('in the loop: ', fooditemsData);})
+        }).then(()=>{})
         
      } 
     }).then(()=>{
-      console.log('afterloop: ', fooditemsData)
+     
       return knex('foods_and_orders').insert(fooditemsData);
       }).then(()=>{
       res.render("confirmation",{test: tempVar});

@@ -73,10 +73,10 @@
       <div class="popup-content">
         <h3>Phone number</h3><span id="order_total"></span>
 
-        <div><span class="note">Phone Number: 123-456-7890</span></div>
+        <div><span class="note">Format: 1234567890</span></div>
         <!--popup's close button-->
         <form action="/confirmation" method="post" class="form">
-          <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
+          <input type="tel" id="phone" name="phone" pattern="[0-9]{3}[0-9]{3}[0-9]{4}" required>
           <button class="confirm-order">Confirm order</button>
           <!-- <input type="hidden" name="test[][item1]" value="0">
             <input type="hidden" name="test[][item2]" value="1">

@@ -66,8 +66,8 @@ app.post("/order_check", (req, res) => {
 //       })
 // }
 
-app.post("/menu", (req, res) => {
-  let tempVar=req.body;
+app.post("/confirmation", (req, res) => {
+  let tempVar = req.body;
   
   return knex('orders')
   .insert({

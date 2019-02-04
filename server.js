@@ -109,6 +109,28 @@ app.post("/confirmation", (req, res) => {
       }
     }) 
     }).then(()=>{
+  
+      
+      client.messages.create(
+        {
+          to: '+16047156043',
+          from: '+16042432302',
+          body: `New order: #${tempVar.id}`,
+        },
+        (err, message) => {
+          
+        }
+      )
+      client.messages.create(
+        {
+          to: '+17789874366',
+          from: '+16042432302',
+          body: `You order #${tempVar.id} has been placed. You will receive the waiting time soon`,
+        },
+        (err, message) => {
+          
+        }
+      )
       res.render("confirmation",{test: tempVar});
     })
 
@@ -143,6 +165,7 @@ app.get("/order/:id", (req, res) => {
       })
     }).then(function( foods) {
       // console.log(foods);
+      
       res.render("order", {foods: foods});
     })
   ]);
@@ -156,12 +179,12 @@ app.post("/order/15mins", (req, res) => {
 
   client.messages.create(
     {
-      to: '+16047156043',
+      to: '+17789874366',
       from: '+16042432302',
       body: 'Your order will be ready for pickup in 15 minutes!',
     },
     (err, message) => {
-      console.log(message.sid);
+ 
     }
   )
   res.redirect("/owner");
@@ -171,12 +194,12 @@ app.post("/order/30mins", (req, res) => {
 
   client.messages.create(
     {
-      to: '+16047156043',
+      to: '+17789874366',
       from: '+16042432302',
       body: 'Your order will be ready for pickup in 30 minutes!',
     },
     (err, message) => {
-      console.log(message.sid);
+  
     }
   )
   res.redirect("/owner");
@@ -186,12 +209,12 @@ app.post("/order/60mins", (req, res) => {
 
   client.messages.create(
     {
-      to: '+16047156043',
+      to: '+17789874366',
       from: '+16042432302',
       body: 'Your order will be ready for pickup in 60 minutes!',
     },
     (err, message) => {
-      console.log(message.sid);
+     
     }
   )
   res.redirect("/owner");
@@ -201,12 +224,12 @@ app.post("/order/ready", (req, res) => {
 
   client.messages.create(
     {
-      to: '+16047156043',
+      to: '+17789874366',
       from: '+16042432302',
       body: 'Your order ready to be picked up!',
     },
     (err, message) => {
-      console.log(message.sid);
+      
     }
   )
   res.redirect("/");

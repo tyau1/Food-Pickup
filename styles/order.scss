@@ -2,14 +2,18 @@ body {
   background-color: #4A4C4C !important;
 
   main {
-   display: flex;
+  display: flex;
     flex-direction: column;
-    margin: 0px auto 0;
+    margin: auto;
     width: 1000px;
-    background-color: white;
-    margin-bottom: 20px;
-    padding-bottom: 2%;
+    justify-content: flex-end;
+    background-color: #013554;
 
+    .mid_layer{
+        margin: auto;
+        width: 800px;
+        background-color: white;
+    }
         .time_button {
             margin: auto;
             border: 1px solid;

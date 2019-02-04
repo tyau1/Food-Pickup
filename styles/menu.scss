@@ -40,7 +40,6 @@ body {
  
     }
 
-    
 
     #menu_table {
       width: 800px;
@@ -130,6 +129,12 @@ body {
      .confirm-order {
        border-radius: 10px;
      }
+
+     .order_table {
+      border: 1px solid black;
+      border-radius: 50px;
+      border-spacing: 0;
+    }
     }
 }
 

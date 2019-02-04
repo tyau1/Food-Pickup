@@ -77,7 +77,7 @@ $(() => {
           $("<tr class = 'temp'>").html(
             `
             <td>${food.name}</td>
-            <td>amt:${num[index]} </td>
+            <td>${num[index]} </td>
             `)
             .appendTo($(".order_table"));
           $(`<input class='temp' type='hidden' name='foods[${food.name}]' value='${num[index]}'>`).html(``)

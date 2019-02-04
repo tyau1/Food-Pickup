@@ -68,7 +68,7 @@ app.post("/order_check", (req, res) => {
 
 app.post("/menu", (req, res) => {
   let tempVar=req.body;
-  let fooditemsData = [];
+  
   return knex('orders')
   .insert({
         phone_number:`${req.body.phone}`,
@@ -87,11 +87,9 @@ app.post("/menu", (req, res) => {
     knex('foods')
     .select('*')
     .whereIn('name',foods_name)
-    .asCallback(function(err, rows) {
-      if (err){
-        console.log(err);
-      }
+    .then(function(rows) {
       if (rows){
+        let fooditemsData = [];
         const foodIds = rows.map((element)=>{
           return element.id
         })
@@ -106,14 +104,11 @@ app.post("/menu", (req, res) => {
             price: (((Math.round((Number(foodprice[i]) * Number(tempVar.foods[foods_name[i]]))*100))/100).toString())
             });
         }
-      }else{
-        console.log('error')
+        
+        return knex('foods_and_orders').insert(fooditemsData);
       }
     }) 
     }).then(()=>{
-      // console.log("after",fooditemsData);
-      return knex('foods_and_orders').insert(fooditemsData);
-      }).then(()=>{
       res.render("confirmation",{test: tempVar});
     })
 

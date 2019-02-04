@@ -58,14 +58,6 @@ app.post("/order_check", (req, res) => {
 
 });
 
-function getFoodId(name){
-  return knex.select("*").from("foods")
-      .where('name',name)
-      .then(function(fooditem){
-        return fooditem;
-      })
-}
-
 // function insert(array){
 //   return knex("foods_and_")
 //       .where('name',name)
@@ -87,21 +79,39 @@ app.post("/menu", (req, res) => {
     let orderid = id[0];
     
     tempVar["id"]= orderid;
-    for (var key in tempVar.foods) {
-      var result = getFoodId(key);
-      return result.then((item) => {
-        fooditemsData.push({
-          food_id: item[0].id,
-          order_id: orderid,
-          qty: Number(tempVar.foods[key]),
-          price: (((Math.round((Number(item[0].price) * Number(tempVar.foods[key]))*100))/100).toString())
-          });
-          
-        }).then(()=>{})
-        
-     } 
+    let foods_name=[]
+    for (let element in tempVar.foods){
+      foods_name.push(element);
+    }
+
+    knex('foods')
+    .select('*')
+    .whereIn('name',foods_name)
+    .asCallback(function(err, rows) {
+      if (err){
+        console.log(err);
+      }
+      if (rows){
+        const foodIds = rows.map((element)=>{
+          return element.id
+        })
+        const foodprice = rows.map((element)=>{
+          return element.price
+        })
+        for (let i = 0; i < rows.length; i++){
+          fooditemsData.push({
+            food_id: foodIds[i],
+            order_id: orderid,
+            qty: Number(tempVar.foods[foods_name[i]]),
+            price: (((Math.round((Number(foodprice[i]) * Number(tempVar.foods[foods_name[i]]))*100))/100).toString())
+            });
+        }
+      }else{
+        console.log('error')
+      }
+    }) 
     }).then(()=>{
-     
+      // console.log("after",fooditemsData);
       return knex('foods_and_orders').insert(fooditemsData);
       }).then(()=>{
       res.render("confirmation",{test: tempVar});
@@ -112,6 +122,35 @@ app.post("/menu", (req, res) => {
 app.get("/confirmation", (req, res) => {
   
   res.render("confirmation");
+});
+
+app.get("/order/:id", (req, res) => {
+  // console.log(knex.select('*').from('foods_and_orders').where('order_id',req.params.id));
+  
+  return Promise.all([
+    knex('foods_and_orders')
+    .where('order_id',req.params.id)
+    .then(function(foods_orders) {
+      if (!foods_orders) { return false }
+
+      const foodIds = foods_orders.map((element)=> element.food_id)
+      return knex.select('name','id').from('foods').whereIn('id', foodIds).then((foods)=> {
+        
+        return foods.map((food) => {
+          const food_order = foods_orders.find(food_order => food_order.food_id === food.id);
+          return ({ 
+            name: food.name, 
+            qty: food_order.qty, 
+            price: food_order.price,
+            orderId:food_order.order_id
+          });
+        });
+      })
+    }).then(function( foods) {
+      console.log(foods);
+      res.render("order", {foods: foods});
+    })
+  ]);
 });
 
 app.get("/order", (req, res) => {

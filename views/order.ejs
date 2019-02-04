@@ -16,7 +16,18 @@
         <span class="header">Home</span>
     </nav>
     <h3>Please confirm when order will be ready?</h3>
-
+    
+    <table>
+        <tr><h3>Order Number: <%=foods[0].orderId%></h3></tr>
+        <tr><td><h4>foods</h4></td><td><h4>quantity</h4></td><td><h4>price of each</h4></td></tr>
+        <%foods.forEach((element)=>{%>
+            <tr>
+            <td><%=element.name%></td>
+            <td><%=element.qty%></td>
+            <td>$<%=element.price%></td>
+            </tr>
+        <%})%>
+    </table>
     <form action="/order/15mins" method="POST">
         <button class="time_button" id="a" type="submit"> 15 minutes </button>
     </form>

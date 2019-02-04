@@ -4,7 +4,7 @@
 }
 
 body {
-  background-color: black !important;
+  background-color: #4A4C4C !important;
   
   main {
    display: flex;
@@ -30,9 +30,7 @@ body {
       position: fixed;
       bottom: 120px;
       margin-left: 900px;
-      //right: 74px;
-      border-radius: 10px;
-      border: 1px solid grey;
+      padding-left: 10px;
       font-size: 16px;
       background-color:white;
     }
@@ -52,7 +50,7 @@ body {
 
       thead {
 	      th {
-          background-color: black;
+          background-color:#013554;
           color: white;
           padding: 15px;
 	      }

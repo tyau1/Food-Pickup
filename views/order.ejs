@@ -13,11 +13,11 @@
 
 <body>
     <nav id="nav-bar">
-        <span class="header">Home</span>
+        <span class="header">Confirmation The Order</span>
     </nav>
-    <h3>Please confirm when order will be ready?</h3>
+    <center><h3>Please confirm when order will be ready?</h3></center>
     
-    <table>
+    <center><table border=1>
         <tr><h3>Order Number: <%=foods[0].orderId%></h3></tr>
         <tr><td><h4>foods</h4></td><td><h4>quantity</h4></td><td><h4>price of each</h4></td></tr>
         <%foods.forEach((element)=>{%>
@@ -27,19 +27,21 @@
             <td>$<%=element.price%></td>
             </tr>
         <%})%>
-    </table>
-    <form action="/order/15mins" method="POST">
+    </table></center>
+    <center><form action="/order/15mins" method="POST">
         <button class="time_button" id="a" type="submit"> 15 minutes </button>
-    </form>
+    </form></center>
 
-    <form action="/order/30mins" method="POST">
+    <center><form action="/order/30mins" method="POST">
         <button class="time_button" id="b" type="submit"> 30 minutes </button>
-    </form>
+    </form></center>
 
-    <form action="/order/60mins" method="POST">
+    <center><form action="/order/60mins" method="POST">
         <button class="time_button" id="c" type="submit"> 60 minutes </button>
-    </form>
+    </form></center>
 
+
+    </main>
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
 </body>

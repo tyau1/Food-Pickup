@@ -24,9 +24,9 @@ $(() => {
     })
     $("<div>").html(
       `
-        <button class="running_total">Total Price:
+        <div class="running_total">Total Price:
         <br>
-        <div>$ <a>0</a></div> </button>
+        <div>$ <a>0</a></div> </div>
 
           <button class="clear_all">Clear All</button>
 

@@ -1,7 +1,6 @@
 
 body {
-  background-color: black;
-  // background-color: red;
+  background-color:#4A4C4C;
 
   main {
     display: flex;
@@ -18,14 +17,14 @@ body {
     .home_content {
     display:flex;
     flex-direction: row;
-    background-color: white;
+    background-color: #013554;
     width: 1000px;
 
       .homepage_rightside{
         display: flex;
         flex-direction: row;
         justify-content: flex-end;
-        background-color: #333434;
+        background-color: #013554;
         border-left: 4px solid white;
         width:400px;
         height:420px;
@@ -45,7 +44,7 @@ body {
       display: flex;
       flex-direction: row;
       justify-content: flex-end;
-      background-color: black;
+      background-color: #013554;
       height: 100px;
 
       .order_now{
@@ -64,7 +63,7 @@ body {
     .thankyou{
       flex-direction: column;
       margin:auto;
-      background-color: black;
+      background-color: #013554;
       width: 900px;
       color: white;
     }

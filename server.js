@@ -22,11 +22,6 @@ const authToken = 'aff4f2de6cae1ab86287c5c8ab9c3991';
 // require the Twilio module and create a REST client
 const client = require('twilio')(accountSid, authToken);
 
-// Load the logger first so all (static) HTTP requests are logged to STDOUT
-// 'dev' = Concise output colored by response status for development use.
-//         The :status token will be colored red for server error codes, yellow for client error codes, cyan for redirection codes, and uncolored for all other codes.
-// app.use(morgan('dev'));
-
 // Log knex SQL queries to STDOUT as well
 // app.use(knexLogger(knex));
 
@@ -43,7 +38,6 @@ app.use(express.static("public"));
 // Mount all resource routes
 app.use("/api/foods", foodsRoutes(knex));
 
-// Home page
 app.get("/", (req, res) => {
   res.render("index");
 });
@@ -52,23 +46,9 @@ app.get("/menu", (req, res) => {
   res.render("menu");
 });
 
-app.post("/order_check", (req, res) => {
-
-
-
-});
-
-// function insert(array){
-//   return knex("foods_and_")
-//       .where('name',name)
-//       .then(function(fooditem){
-//         return fooditem;
-//       })
-// }
-
 app.post("/confirmation", (req, res) => {
   let tempVar = req.body;
-  
+
   return knex('orders')
   .insert({
         phone_number:`${req.body.phone}`,
@@ -104,13 +84,13 @@ app.post("/confirmation", (req, res) => {
             price: (((Math.round((Number(foodprice[i]) * Number(tempVar.foods[foods_name[i]]))*100))/100).toString())
             });
         }
-        
+
         return knex('foods_and_orders').insert(fooditemsData);
       }
-    }) 
+    })
     }).then(()=>{
-  
-      
+
+
       client.messages.create(
         {
           to: '+16047156043',
@@ -118,7 +98,7 @@ app.post("/confirmation", (req, res) => {
           body: `New order: #${tempVar.id}`,
         },
         (err, message) => {
-          
+
         }
       )
       client.messages.create(
@@ -128,7 +108,7 @@ app.post("/confirmation", (req, res) => {
           body: `You order #${tempVar.id} has been placed. You will receive the waiting time soon`,
         },
         (err, message) => {
-          
+
         }
       )
       res.render("confirmation",{test: tempVar});
@@ -142,8 +122,7 @@ app.get("/confirmation", (req, res) => {
 });
 
 app.get("/order/:id", (req, res) => {
-  // console.log(knex.select('*').from('foods_and_orders').where('order_id',req.params.id));
-  
+
   return Promise.all([
     knex('foods_and_orders')
     .where('order_id',req.params.id)
@@ -152,20 +131,18 @@ app.get("/order/:id", (req, res) => {
 
       const foodIds = foods_orders.map((element)=> element.food_id)
       return knex.select('name','id').from('foods').whereIn('id', foodIds).then((foods)=> {
-        
+
         return foods.map((food) => {
           const food_order = foods_orders.find(food_order => food_order.food_id === food.id);
-          return ({ 
-            name: food.name, 
-            qty: food_order.qty, 
+          return ({
+            name: food.name,
+            qty: food_order.qty,
             price: food_order.price,
             orderId:food_order.order_id
           });
         });
       })
     }).then(function( foods) {
-      // console.log(foods);
-      
       res.render("order", {foods: foods});
     })
   ]);
@@ -184,7 +161,7 @@ app.post("/order/15mins", (req, res) => {
       body: 'Your order will be ready for pickup in 15 minutes!',
     },
     (err, message) => {
- 
+
     }
   )
   res.redirect("/owner");
@@ -199,7 +176,7 @@ app.post("/order/30mins", (req, res) => {
       body: 'Your order will be ready for pickup in 30 minutes!',
     },
     (err, message) => {
-  
+
     }
   )
   res.redirect("/owner");
@@ -214,7 +191,7 @@ app.post("/order/60mins", (req, res) => {
       body: 'Your order will be ready for pickup in 60 minutes!',
     },
     (err, message) => {
-     
+
     }
   )
   res.redirect("/owner");
@@ -229,7 +206,7 @@ app.post("/order/ready", (req, res) => {
       body: 'Your order ready to be picked up!',
     },
     (err, message) => {
-      
+
     }
   )
   res.redirect("/");
